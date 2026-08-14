@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class PagoTest {
 
-    Pago pago = new Pago();
+    Pago pago = new Pago(new Database());
 
     @Test
     void Dado_datosCorrectos_Cuando_Paga_Entonces_retornaMsjExitoso() {
