@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+    id 'jacoco'
+    id 'info.solidsoft.pitest' version '1.19.0'
+}
+
+group = "co.edu.unisabana"
+version = "1.0-SNAPSHOT"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.flywaydb:flyway-core'
+    implementation 'org.flywaydb:flyway-mysql'
+    testImplementation(platform("org.junit:junit-bom:5.10.0"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+}
+jacoco {
+    toolVersion = "0.8.14"
+}
+test {
+    useJUnitPlatform()
+    finalizedBy jacocoTestReport // report is always generated after tests run
+}
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
+}
+build.dependsOn 'pitest'
+
+pitest {
+    targetClasses = ['co.edu.unisabana.logica.*']
+    junit5PluginVersion = '1.2.1'
+    threads = 4
+    testStrengthThreshold = 80
+    outputFormats = ['XML', 'HTML']
+    timestampedReports = false
+}
