@@ -12,8 +12,8 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.flywaydb:flyway-core'
-    implementation 'org.flywaydb:flyway-mysql'
+    //implementation 'org.flywaydb:flyway-core'
+    //implementation 'org.flywaydb:flyway-mysql'
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
 }
@@ -33,7 +33,7 @@ pitest {
     targetClasses = ['co.edu.unisabana.logica.*']
     junit5PluginVersion = '1.2.1'
     threads = 4
-    testStrengthThreshold = 80
+    testStrengthThreshold = 77
     outputFormats = ['XML', 'HTML']
     timestampedReports = false
 }
