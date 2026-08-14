@@ -15,4 +15,9 @@ public class PagoController {
         pago.pagar(monto, datos);
         return "ok";
     }
+
+    public String consultar(int monto, String datos) {
+        pago.pagar(monto, datos);
+        return "ok";
+    }
 }
