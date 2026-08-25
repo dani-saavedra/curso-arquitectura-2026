@@ -27,7 +27,7 @@ spec:
           httpGet:
             path: /nuevo-saludo
             port: 8081
-          initialDelaySeconds: 20
+          initialDelaySeconds: 5
         env:
           - name: POD_NAME
             valueFrom:
