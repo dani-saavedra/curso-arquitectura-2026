@@ -24,7 +24,7 @@ spec:
             memory: "600Mi"
         startupProbe:
           httpGet:
-            path: /nuevo-saludo
+            path: /saludo
             port: 8081
           initialDelaySeconds: 5
         env:
