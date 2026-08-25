@@ -22,11 +22,6 @@ spec:
           requests:
             cpu: "200m"
             memory: "600Mi"
-        startupProbe:
-          httpGet:
-            path: /saludo
-            port: 8081
-          initialDelaySeconds: 5
         env:
           - name: POD_NAME
             valueFrom:
