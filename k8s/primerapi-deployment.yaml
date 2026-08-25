@@ -5,7 +5,6 @@ metadata:
   labels:
     app: primerapi
 spec:
-  replicas: 3
   selector:
     matchLabels:
       app: primerapi
