@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: primerapi
+  labels:
+    app: primerapi
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: primerapi
+  template:
+    metadata:
+      labels:
+        app: primerapi
+    spec:
+      containers:
+      - name: primerapi
+        image: danielsabana/vaca:1.5.0
+        ports:
+        - containerPort: 8081
+        resources:
+          requests:
+            cpu: "200m"
+            memory: "600Mi"
+        startupProbe:
+          httpGet:
+            path: /nuevo-saludo
+            port: 8081
+          initialDelaySeconds: 20
+        env:
+          - name: POD_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
